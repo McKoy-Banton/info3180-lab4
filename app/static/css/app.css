@@ -18,3 +18,24 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 10px; /* Space between images */
+    max-width: 800px; /* Set max width */
+    margin: auto; /* Center the grid */
+}
+
+.image-grid img {
+    width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure images fill the grid */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.page-headerview{
+    text-align: center;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}

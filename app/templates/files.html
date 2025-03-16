@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1 class="page-headerview">View Image</h1>
+
+
+{% include 'flash_messages.html' %}
+
+{# Add the appropriate method and enctype attributes to the form tag to allow for file uploads #}
+<div class="image-grid">
+    {% for image in images %}
+        <img src="{{ url_for('get_image', filename=image) }}" alt="{{ image }}">
+    {% endfor %}
+</div>
+{% endblock %}
