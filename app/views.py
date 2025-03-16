@@ -58,15 +58,25 @@ def get_uploaded_images():
     
     return image_files
 
+
 @app.route('/uploads/<filename>')
+@login_required
 def get_image(filename):
     return send_from_directory(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER']), filename)
 
-@login_required
+
 @app.route('/files')
+@login_required
 def files():
     images = get_uploaded_images()
     return render_template('files.html', images=images)
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('You have been logged out.', 'info')
+    return redirect(url_for('home'))  # Redirect to the home page
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
